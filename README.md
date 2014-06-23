@@ -23,7 +23,7 @@ It's used for RequireJs and Framework7 initial configuration.
 Also it starts application routing.
 
 Router has two methods:
-+ ```Router.start()``` - starts routing - handle Framework7 page events - pageBeforeInit and pageBeforeAnimation.
++ ```Router.init()``` - initialize routing - handle Framework7 page events - pageBeforeInit and pageBeforeAnimation.
 More about Framework7 page events here:
 http://www.idangero.us/framework7/docs/pages.html#page-events
 

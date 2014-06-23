@@ -20,9 +20,6 @@ define(["app", "js/contactModel", "js/contactEdit/contactEditView"], function(ap
 			contact = new Contact({ isFavorite: query.isFavorite });
 			state.isNew = true;
 		}
-	}
-
-	function render() {
 		View.render({ model: contact, bindings: bindings, state: state, doneCallback: saveContact });
 	}
 
@@ -69,7 +66,6 @@ define(["app", "js/contactModel", "js/contactEdit/contactEditView"], function(ap
 	}
 
 	return {
-		init: init,
-		render: render
+		init: init
 	};
 });

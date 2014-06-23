@@ -11,7 +11,7 @@ require.config({
     }
 });
 define('app', ['js/router', 'js/utils'], function(Router, Utils) {
-	Router.start();
+	Router.init();
 	var f7 = new Framework7({
 		modalTitle: 'Contacts7',
 		swipePanel: 'left',

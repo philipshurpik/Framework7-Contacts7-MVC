@@ -5,6 +5,10 @@ define(["app","js/contact/contactView", "js/contactModel"], function(app, Contac
 		element: '.contact-edit-link',
 		event: 'click',
 		handler: runEditMode
+	}, {
+		element: '.contact-back-link',
+		event: 'click',
+		handler: goBack
 	}];
 
 	function init(query){
@@ -12,9 +16,6 @@ define(["app","js/contact/contactView", "js/contactModel"], function(app, Contac
 		if (query && query.id) {
 			contact = new Contact(_.find(contacts, { id: query.id }));
 		}
-	}
-
-	function render() {
 		ContactView.render({
 			model: contact,
 			bindings: bindings
@@ -25,8 +26,11 @@ define(["app","js/contact/contactView", "js/contactModel"], function(app, Contac
 		app.router.load('contactEdit', {id: contact.id });
 	}
 
+	function goBack() {
+		app.router.load('list');
+	}
+
 	return {
-		init: init,
-		render: render
+		init: init
 	};
 });

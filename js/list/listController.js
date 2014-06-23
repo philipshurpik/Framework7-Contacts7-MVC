@@ -16,10 +16,6 @@ define(["app", "js/contactModel","js/list/listView"], function(app, Contact, Lis
 		element: '.list-panel-favorites',
 		event: 'click',
 		handler: showFavorites
-	}, {
-		element: '.contacts-list',
-		event: 'search',
-		handler: fixStickySearchResults
 	}
 	];
 
@@ -27,7 +23,7 @@ define(["app", "js/contactModel","js/list/listView"], function(app, Contact, Lis
 		isFavorite: false
 	};
 
-    function render() {
+    function init() {
 		var contacts = loadContacts();
 		ListView.render({
 			bindings: bindings,
@@ -63,23 +59,6 @@ define(["app", "js/contactModel","js/list/listView"], function(app, Contact, Lis
 		return contacts;
 	}
 
-	function fixStickySearchResults(e) {
-        Framework7.$('.contacts-list .list-group-title').each(function() {
-            var title = Framework7.$(this);
-            var nextElements = title.nextAll('li');
-            var hide = true;
-            for (var i = 0; i < nextElements.length; i++) {
-                var nextEl = Framework7.$(nextElements[i]);
-                if (nextEl.hasClass('list-group-title')) break;
-                if (nextEl.css('display') !== 'none') {
-                    hide = false;
-                }
-            }
-            if (hide) title.hide();
-            else title.css('display', '');
-        });
-    }
-
 	function tempInitializeStorage() {
 		var contacts = [
 			new Contact({ "firstName": "Alex", "lastName": "Black", "company": "Global Think", "phone": "+380631234561", "email": "ainene@umail.com", "city": "London", isFavorite: true }),
@@ -112,6 +91,6 @@ define(["app", "js/contactModel","js/list/listView"], function(app, Contact, Lis
 	}
 
     return {
-        render: render
+        init: init
     };
 });
