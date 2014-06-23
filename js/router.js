@@ -2,16 +2,22 @@ define(function() {
 	var $ = Framework7.$;
 
 	/**
-	 * Starts router,
+	 * Starts router, that handle page events
 	 */
     function start() {
 		$(document).on('pageBeforeInit', function (e) {
 			var page = e.detail.page;
-			initController(page.name, page.query);
+			_require(page.name, function(controller) {
+				if (controller.init) {
+					controller.init(page.query);
+				}
+			});
 		});
 		$(document).on('pageBeforeAnimation', function (e) {
 			var page = e.detail.page;
-			renderController(page.name, page.query);
+			_require(page.name, function(controller) {
+				controller.render(page.query);
+			});
 		});
     }
 
@@ -21,7 +27,7 @@ define(function() {
 	 * @param query
 	 */
 	function load(controllerName, query) {
-		require(['js/' + controllerName + '/'+ controllerName + 'Controller'], function(controller) {
+		_require(controllerName, function(controller) {
 			if (controller.init) {
 				controller.init(query);
 			}
@@ -29,18 +35,8 @@ define(function() {
 		});
 	}
 
-    function initController(controllerName, query) {
-        require(['js/' + controllerName + '/'+ controllerName + 'Controller'], function(controller) {
-            if (controller.init) {
-				controller.init(query);
-			}
-        });
-    }
-
-	function renderController(controllerName, query) {
-		require(['js/' + controllerName + '/'+ controllerName + 'Controller'], function(controller) {
-			controller.render(query);
-		});
+	function _require(controllerName, callback) {
+		require(['js/' + controllerName + '/'+ controllerName + 'Controller'], callback);
 	}
 
     return {
