@@ -3,7 +3,7 @@ Framework7-Contacts7-MVC
 
 This app shows you example of using beautiful mobile framework - Framework7 in MVC way for building data-driven contacts application.
 
-Additional js libraries:
+##### Additional js libraries:
  - Handlebars - templating library (http://handlebarsjs.com/)
  - RequireJS - for asynchronous javascript modules loading (http://requirejs.org/)
  - Additional RequireJS plugins for handlebars templates loading: 
@@ -16,22 +16,30 @@ And amazing mobile-icons library:
  
 
 Some notes about "how it works".
+-----
 
-Application entry point: app.js file. It's used for RequireJs and Framework7 initial configuration. 
+Application entry point: app.js file. 
+It's used for RequireJs and Framework7 initial configuration. 
 Also it starts application routing.
 
 Router has two methods:
-+ Router.start() - starts routing - handle Framework7 page events - pageBeforeInit and pageBeforeAnimation.
++ ```Router.start()``` - starts routing - handle Framework7 page events - pageBeforeInit and pageBeforeAnimation.
 More about Framework7 page events here:
 http://www.idangero.us/framework7/docs/pages.html#page-events
 
-+ Router.load(contollerName, query) - load selected controller, query - optional object with some parameters
++ ```Router.load(contollerName, query)``` - load selected controller, query - optional object with some parameters
 This method is useful for loading in already rendered page (for example popup)
 
 
 Suggested application code structure is convenient, especially for large projects:
- js/moduleName1/moduleName1View.js
+``` js/moduleName1/moduleName1View.js
  js/moduleName1/moduleName1Controller.js
  js/moduleName1/some_templates.hbs
  js/router.js
  js/model.js
+```
+
+License
+----
+
+MIT
