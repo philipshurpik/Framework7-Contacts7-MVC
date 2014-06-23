@@ -8,15 +8,6 @@
 body {
 	background: @white;
 }
-html.ios {
-	.page {
-		overflow: auto;
-		-webkit-overflow-scrolling: touch;
-	}
-	.page-content {
-		margin-bottom: 1px;
-	}
-}
 .navbar {
 	border-bottom: none;
 	background: @blue;
@@ -24,6 +15,9 @@ html.ios {
 	a.link {
 		color: @white;
 	}
+}
+.page {
+	background: #fff;
 }
 .searchbar {
 	background: @lightGrey;
@@ -81,9 +75,16 @@ body.with-panel-left-reveal {
 .popup-overlay {
 	background: rgba(128, 128, 128, 0.2);
 }
+.popup {
+	.navbar {
+		-webkit-transform-style: preserve-3d;
+		-webkit-backface-visibility: hidden;
+	}	
+}
 .statusbar-overlay {
 	background: @blue;
 }
+
 .contacts-list {
 	margin: 0;
 	.item-title {
@@ -102,6 +103,23 @@ body.with-panel-left-reveal {
 			border-radius: 24px;
 		}
 	}
+	.list-group-title {
+		line-height: 22px;
+		padding: 0 15px;
+		color:#000;
+		border-top: 1px solid #c8c7cc;
+		font-weight: 500;
+		-webkit-transform:translate3d(0,0,0);
+		-webkit-backface-visibility:hidden;
+		-webkit-transform-style: preserve-3d;
+	}
+	li + .list-group-title {
+		margin-top: -1px;
+	}
+	ul {
+		border: none;
+	}
+
 }
 
 /* Contact page - view & edit */
@@ -123,23 +141,30 @@ body.with-panel-left-reveal {
 }
 .contact-photo() {
 	margin:20px;
-	display: inline-block;
+	-webkit-flex-shrink: 0;
+    -ms-flex: 0 0 auto;
+    flex-shrink: 0;
 	img {
 		width: 100px;
 		height: 100px;
 		border-radius: 50px;
+		display: block;
 	}
 }
-
+.contact-header {
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
 .contact-edit-form {
 	.item-photo {
 		.contact-photo()
 	}
 	.contact-header {
 		.list-block {
-			display: inline-block;
+			width: 100%;
 			margin: 0px;
-			width: 176px;
 			ul {
 				border-top: 0px;
 				.item-content {
@@ -151,14 +176,13 @@ body.with-panel-left-reveal {
 	.contact-other {
 		.contact-list-fields()
 	}
-	.contact-delete-button {
-		border: 1px solid rgb(214, 14, 14);
+	.item-link.contact-delete-button {
+		text-align: left;
 		color: rgb(214, 14, 14);
-		margin-top: 60px;
+		padding-left: 51px;
 	}
 }
 .contact-page {
-	background-color: @white;
 	.item-photo {
 		.contact-photo()
 	}

@@ -1,13 +1,6 @@
 body {
   background: #ffffff;
 }
-html.ios .page {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-html.ios .page-content {
-  margin-bottom: 1px;
-}
 .navbar {
   border-bottom: none;
   background: #74baee;
@@ -15,6 +8,9 @@ html.ios .page-content {
 }
 .navbar a.link {
   color: #ffffff;
+}
+.page {
+  background: #fff;
 }
 .searchbar {
   background: #fafafa;
@@ -66,6 +62,10 @@ body.with-panel-left-reveal .statusbar-overlay {
 .popup-overlay {
   background: rgba(128, 128, 128, 0.2);
 }
+.popup .navbar {
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
 .statusbar-overlay {
   background: #74baee;
 }
@@ -88,20 +88,44 @@ body.with-panel-left-reveal .statusbar-overlay {
   height: 48px;
   border-radius: 24px;
 }
+.contacts-list .list-group-title {
+  line-height: 22px;
+  padding: 0 15px;
+  color: #000;
+  border-top: 1px solid #c8c7cc;
+  font-weight: 500;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+}
+.contacts-list li + .list-group-title {
+  margin-top: -1px;
+}
+.contacts-list ul {
+  border: none;
+}
 /* Contact page - view & edit */
+.contact-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
 .contact-edit-form .item-photo {
   margin: 20px;
-  display: inline-block;
+  -webkit-flex-shrink: 0;
+  -ms-flex: 0 0 auto;
+  flex-shrink: 0;
 }
 .contact-edit-form .item-photo img {
   width: 100px;
   height: 100px;
   border-radius: 50px;
+  display: block;
 }
 .contact-edit-form .contact-header .list-block {
-  display: inline-block;
+  width: 100%;
   margin: 0px;
-  width: 176px;
 }
 .contact-edit-form .contact-header .list-block ul {
   border-top: 0px;
@@ -124,22 +148,22 @@ body.with-panel-left-reveal .statusbar-overlay {
   font-size: 24px;
   color: #007aff;
 }
-.contact-edit-form .contact-delete-button {
-  border: 1px solid #d60e0e;
+.contact-edit-form .item-link.contact-delete-button {
+  text-align: left;
   color: #d60e0e;
-  margin-top: 60px;
-}
-.contact-page {
-  background-color: #ffffff;
+  padding-left: 51px;
 }
 .contact-page .item-photo {
   margin: 20px;
-  display: inline-block;
+  -webkit-flex-shrink: 0;
+  -ms-flex: 0 0 auto;
+  flex-shrink: 0;
 }
 .contact-page .item-photo img {
   width: 100px;
   height: 100px;
   border-radius: 50px;
+  display: block;
 }
 .contact-page .header-text {
   display: inline-block;
