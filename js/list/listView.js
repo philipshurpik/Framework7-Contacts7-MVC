@@ -3,12 +3,14 @@ define(['hbs!js/list/contact-list-item'], function(template) {
 
 	function render(params) {
         $('.contacts-list ul').html(template(params.model));
+        $('.searchbar-cancel').click();
 		bindEvents(params.bindings);
     }
 
 	function reRender(params) {
 		$('.contacts-list ul').html(template(params.model));
 		$('.contacts-list-header').text(params.header);
+        $('.searchbar-cancel').click();
 	}
 
 	function bindEvents(bindings) {
@@ -20,5 +22,5 @@ define(['hbs!js/list/contact-list-item'], function(template) {
     return {
         render: render,
 		reRender: reRender
-    }
+    };
 });

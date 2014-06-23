@@ -16,6 +16,10 @@ define(["app", "js/contactModel","js/list/listView"], function(app, Contact, Lis
 		element: '.list-panel-favorites',
 		event: 'click',
 		handler: showFavorites
+	}, {
+		element: '.contacts-list',
+		event: 'search',
+		handler: fixStickySearchResults
 	}
 	];
 
@@ -58,6 +62,23 @@ define(["app", "js/contactModel","js/list/listView"], function(app, Contact, Lis
 		contacts = _.toArray(_.mapValues(contacts, function(value, key) { return { 'letter': key, 'list': value }; }));
 		return contacts;
 	}
+
+	function fixStickySearchResults(e) {
+        Framework7.$('.contacts-list .list-group-title').each(function() {
+            var title = Framework7.$(this);
+            var nextElements = title.nextAll('li');
+            var hide = true;
+            for (var i = 0; i < nextElements.length; i++) {
+                var nextEl = Framework7.$(nextElements[i]);
+                if (nextEl.hasClass('list-group-title')) break;
+                if (nextEl.css('display') !== 'none') {
+                    hide = false;
+                }
+            }
+            if (hide) title.hide();
+            else title.css('display', '');
+        });
+    }
 
 	function tempInitializeStorage() {
 		var contacts = [
