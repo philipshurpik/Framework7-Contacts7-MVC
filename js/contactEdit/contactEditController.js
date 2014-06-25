@@ -31,6 +31,7 @@ define(["app", "js/contactModel", "js/contactEdit/contactEditView"], function(ap
 				var contacts = JSON.parse(localStorage.getItem("f7Contacts"));
 				_.remove(contacts, { id: contact.id });
 				localStorage.setItem("f7Contacts", JSON.stringify(contacts));
+				app.router.load('list'); // reRender main page view
 				app.mainView.goBack("index.html", false);
 				app.f7.closeModal();
 			}
@@ -52,6 +53,7 @@ define(["app", "js/contactModel", "js/contactEdit/contactEditView"], function(ap
 		}
 		contacts.push(contact);
 		localStorage.setItem("f7Contacts", JSON.stringify(contacts));
+		app.router.load('list'); // reRender main page view
 		closePage();
 	}
 
