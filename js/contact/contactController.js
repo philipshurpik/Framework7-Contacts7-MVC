@@ -5,10 +5,6 @@ define(["app","js/contact/contactView", "js/contactModel"], function(app, Contac
 		element: '.contact-edit-link',
 		event: 'click',
 		handler: runEditMode
-	}, {
-		element: '.contact-back-link',
-		event: 'click',
-		handler: goBack
 	}];
 
 	function init(query){
@@ -24,10 +20,6 @@ define(["app","js/contact/contactView", "js/contactModel"], function(app, Contac
 
 	function runEditMode() {
 		app.router.load('contactEdit', {id: contact.id });
-	}
-
-	function goBack() {
-		app.router.load('list');
 	}
 
 	return {
