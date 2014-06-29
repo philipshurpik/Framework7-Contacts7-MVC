@@ -20,7 +20,6 @@ define('app', ['js/router', 'js/utils'], function(Router, Utils) {
     var mainView = f7.addView('.view-main', {
         dynamicNavbar: true
     });
-	Router.load('list');
 	return {
 		f7: f7,
 		mainView: mainView,
