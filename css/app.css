@@ -199,3 +199,67 @@ body.with-panel-left-reveal .statusbar-overlay {
   font-size: 24px;
   color: #007aff;
 }
+/*
+	Android optimization hacks
+*/
+html.android .navbar-from-right-to-center .left.sliding .back.link .icon,
+html.android .navbar-from-center-to-right .left.sliding .back.link .icon,
+html.android .navbar-from-center-to-left .left.sliding .back.link .icon,
+html.android .navbar-from-left-to-center .left.sliding .back.link .icon {
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+html.android .navbar-from-right-to-center .sliding,
+html.android .navbar-from-center-to-right .sliding,
+html.android .navbar-from-center-to-left .sliding,
+html.android .navbar-from-left-to-center .sliding {
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+html.android .page-from-right-to-center {
+  -webkit-animation: pageFromRightToCenterDegrade 200ms forwards;
+  animation: pageFromRightToCenterDegrade 200ms forwards;
+}
+html.android .page-from-center-to-right {
+  -webkit-animation: pageFromCenterToRightDegrade 200ms forwards;
+  animation: pageFromCenterToRightDegrade 200ms forwards;
+}
+html.android .page-on-left {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+html.android .page-from-center-to-left {
+  -webkit-animation: emptyAnimation 50ms forwards;
+  animation: emptyAnimation 50ms forwards;
+}
+html.android .page-from-left-to-center {
+  -webkit-animation: emptyAnimation 50ms forwards;
+  animation: emptyAnimation 50ms forwards;
+}
+@-webkit-keyframes emptyAnimation {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes emptyAnimation {
+  to {
+    opacity: 1;
+  }
+}
+html.android .label-switch input[type="checkbox"] + .checkbox {
+  -webkit-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+html.android .label-switch input[type="checkbox"] + .checkbox:before {
+  -webkit-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+html.android .label-switch input[type="checkbox"] + .checkbox:after {
+  -webkit-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+html.android .list-block .list-group-title {
+  display: none;
+}
