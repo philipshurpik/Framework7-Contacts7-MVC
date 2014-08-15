@@ -1,5 +1,5 @@
 define(['js/contactModel', 'hbs!js/contact/contact'], function(Contact, viewTemplate) {
-	var $ = Framework7.$;
+	var $ = Dom7;
 
 	function render(params) {
 		$('.contact-page').html(viewTemplate({ model: params.model }));

@@ -1,5 +1,5 @@
 define(function() {
-	var $ = Framework7.$;
+	var $ = Dom7;
 
 	function generateGUID(){
 		var d = new Date().getTime();

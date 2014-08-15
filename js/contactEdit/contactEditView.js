@@ -1,5 +1,5 @@
 define(['app', 'js/contactModel', 'hbs!js/contactEdit/contactEdit'], function(app, Contact, editTemplate) {
-	var $ = Framework7.$;
+	var $ = Dom7;
 
 	function render(params) {
 		var template = editTemplate({ model: params.model, state: params.state });
