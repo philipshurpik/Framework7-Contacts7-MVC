@@ -1,5 +1,5 @@
 define(function() {
-	var $ = Framework7.$;
+	var $ = Dom7;
 
 	/**
 	 * Init router, that handle page events
